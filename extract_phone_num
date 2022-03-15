@@ -1,0 +1,25 @@
+import re
+
+def get_str():     #获取需要提取的原文本
+    str_ls=[]
+    while 1:
+        str = input('输入:')
+        if str == '666':    #多行输入结束符
+            break
+        str = str.replace(' ','')   #处理字符之间的空格
+        str_ls.append(str)
+    return str_ls 
+
+
+def extract(str_ls):
+    for i in str_ls:
+        num = re.search(r'(\d{11})',i)
+        if num != None:          #过滤空值
+            print(num.group())
+
+
+if __name__ == '__main__':
+    print('EOF:666')
+    extract(get_str())
+    input('回车退出!')
+
