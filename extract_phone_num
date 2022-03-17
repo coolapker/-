@@ -12,10 +12,13 @@ def get_str():     #获取需要提取的原文本
 
 
 def extract(str_ls):
+    x = 0
     for i in str_ls:
-        num = re.search(r'(\d{11})',i)
-        if num != None:          #过滤空值
-            print(num.group())
+        num = re.findall(r'(1\d{10})',i)
+        for j in num:
+            print(j)
+            x += 1
+    print(f'已提取{x}个手机号!')    
 
 
 if __name__ == '__main__':
